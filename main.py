@@ -13,7 +13,6 @@ def mover_nuvem(nuvem_rect):
 pygame.init()
 pygame.mixer.init()
 
-# TELA
 LARGURA = 1000
 ALTURA = 700
 TELA = pygame.display.set_mode((LARGURA, ALTURA))
@@ -21,11 +20,9 @@ pygame.display.set_caption("Jardim Secreto")
 RELOGIO = pygame.time.Clock()
 fonte = pygame.font.SysFont("arial", 30)
 
-# SONS
 som_flor = pygame.mixer.Sound("recursos/assets/som_flor.wav")
 som_gameover = pygame.mixer.Sound("recursos/assets/som_gameover.wav")
 
-# TELA INICIAL
 def tela_inicial():
     pygame.mixer.music.load("recursos/assets/musica_inicio.mp3")
     pygame.mixer.music.play(-1)
@@ -69,14 +66,9 @@ def tela_inicial():
                     pygame.mixer.music.stop()
                     return nome
 
-# NOME DO JOGADOR
 nome = tela_inicial()
-
-# MÚSICA DE FUNDO DO JOGO
 pygame.mixer.music.load("recursos/assets/musica_jogo.mp3")
 pygame.mixer.music.play(-1)
-
-# IMAGENS
 fundo = pygame.image.load("recursos/assets/fundo.png")
 coelho = pygame.image.load("recursos/assets/coelho.png")
 coelho = pygame.transform.scale(coelho, (120, 120))
@@ -93,8 +85,6 @@ tela_final = pygame.transform.scale(tela_final, (1000, 700))
 nuvem = pygame.image.load("recursos/assets/nuvem.png")
 nuvem = pygame.transform.scale(nuvem, (150, 90))
 nuvem_rect = nuvem.get_rect(topleft=(-100, 50))
-
-# OBJETOS
 coelho_rect = coelho.get_rect()
 coelho_rect.midbottom = (LARGURA // 2, ALTURA - 50)
 
@@ -105,7 +95,6 @@ pontos = 0
 vel = 8
 pausado = False
 
-# LOOP PRINCIPAL
 rodando = True
 while rodando:
     for evento in pygame.event.get():
@@ -144,14 +133,12 @@ while rodando:
         pygame.display.update()
         continue
 
-    # MOVIMENTO
     teclas = pygame.key.get_pressed()
     if teclas[pygame.K_LEFT] and coelho_rect.left > 0:
         coelho_rect.x -= vel
     if teclas[pygame.K_RIGHT] and coelho_rect.right < LARGURA:
         coelho_rect.x += vel
 
-    # SPAWN
     tempo_spawn += 1
     if tempo_spawn >= intervalo_spawn:
         tipo = random.choice(["flor", "minhoca"])
@@ -162,7 +149,6 @@ while rodando:
         itens.append({"tipo": tipo, "rect": rect, "tempo": tempo_criacao, "tipo_sprite": tipo})
         tempo_spawn = 0
 
-    # COLISÃO E DESENHO
     tempo_atual = pygame.time.get_ticks()
     novos_itens = []
     for item in itens:
@@ -224,8 +210,6 @@ while rodando:
         else:
             novos_itens.append(item)
     itens = novos_itens
-
-    # DESENHO
     TELA.blit(fundo, (0, 0))
     TELA.blit(nuvem, nuvem_rect)
     desenhar_sol(TELA)
