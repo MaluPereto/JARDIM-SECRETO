@@ -54,3 +54,10 @@ O projeto foi desenvolvido com foco em aplicar todos os conhecimentos adquiridos
 ✅ Finalizado  
 ✅ 100% funcional  
 ✅ Todos os critérios da atividade cumpridos  
+
+---
+
+### Testador do jogo:
+**Jamile Rockenbach Ferreira** **RA: 1137704**
+
+---

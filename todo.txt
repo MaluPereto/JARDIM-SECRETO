@@ -1,0 +1,14 @@
+1. Git clone do repositório original
+git clone https://github.com/MaluPereto/JARDIM-SECRETO.git
+
+2. Cria uma branch nova 
+git checkout -b teste-jogo
+
+3. Fzer uma alteração em algum arquivo dizendo que testou
+git add .
+git commit -m "escreva sua mensagem"
+git push origin teste-jogo
+
+4. Isso vai gerar uma nova branch no projeto da colega.
+Você pode abrir um novo pull request, e ela aceita
+e faz o merge
