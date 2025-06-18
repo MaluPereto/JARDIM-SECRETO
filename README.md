@@ -57,7 +57,7 @@ O projeto foi desenvolvido com foco em aplicar todos os conhecimentos adquiridos
 
 ---
 
-## Testadora do jogo:
+### Testador do jogo:
 **Jamile Rockenbach Ferreira** **RA: 1137704**
 
 ---
